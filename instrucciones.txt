@@ -1,0 +1,12 @@
+Problema: Raíz de un # de 6 digitos enteros y 6 decimales, poblacion: 10 000 , varientes: probabilidad de cruza(elegir 5 valores), probabilidad de mutacion.
+
+-indentificar codificacion
+-identificar funcion de evaluacion (fitness)
+-identificar elemento de la poblacion 'n'
+-identificar una poblacion aleatoria
+-Evaluar cada individuo(fitness)
+-encontrar el error cuadratico medio= (Ydeseada - Yobtenida)²/2
+-seleccionar las individuos mas optimos
+-cruzar (combinar) individuos segun una probalibilidad (70%)
+-mutar cada individuo segun un valor de probabilidad
+-repetir hasta que error sea menor que 0.0001
