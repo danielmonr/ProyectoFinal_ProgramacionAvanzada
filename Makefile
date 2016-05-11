@@ -1,9 +1,16 @@
-ALL: proy
+ALL: secuencial omp thread
 .PHONY= clean
-CFLAGS= -g -fopenmp
+CFLAGS= -g -fopenmp -lpthread
 
 clean:
-	\rm -rf proy
+	@echo 'Porque Kenny!'
+	\rm -rf secuencial omp thread
 
-proy: main.c
-	gcc $(CFLAGS) main.c -o proy
+secuencial: secuencial.c
+	gcc $(CFLAGS) secuencial.c -lm -o secuencial
+	
+omp: omparalelo.c
+	gcc $(CFLAGS) omparalelo.c -lm -o omp
+
+thread: threadparalelo.c
+	gcc $(CFLAGS) threadparalelo.c -lm -o thread
