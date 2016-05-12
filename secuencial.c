@@ -47,13 +47,42 @@ int main(){
 
     printf("num >> ");
     scanf("%lf", &especimen);
+    int op;
+    printf("Opciones >> ");
+    scanf("%d", &op);
 
     /*definicion de variables auxiliares */
     int i, j;
     char lost = 1;
     double ladeseada = sqrt(especimen); //el error deseado
-    unsigned short prob_cruza = 80;
+    unsigned short prob_cruza;
     unsigned short prob_mutar;
+    switch (op){
+        case 1:
+            prob_cruza = 80;
+            prob_mutar = 5;
+            break;
+        case 2:
+            prob_cruza = 85;
+            prob_mutar = 10;
+            break;
+        case 3:
+            prob_cruza = 40;
+            prob_mutar = 7;
+            break;
+        case 4:
+            prob_cruza = 30;
+            prob_mutar = 50;
+            break;
+        case 5:
+            prob_cruza = 90;
+            prob_mutar = 5;
+            break;
+        default:
+            printf("Error");
+            return 0;
+    }
+
     double *errores = (double*)malloc(N*sizeof(double));
     double tmp, tmp2;
     unsigned int tmp3, tmp4;

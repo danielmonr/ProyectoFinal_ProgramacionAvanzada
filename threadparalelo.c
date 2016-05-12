@@ -56,19 +56,48 @@ char lost = 1;
 
 int main(){
     srand((unsigned)time(NULL));
+	int op;
 
     numeros = (numero_t*)malloc(N*sizeof(numero_t)); //arreglo de la población
     double especimen; //espesemen
 
     printf("num >> ");
     scanf("%lf", &especimen);
+	printf("Opciones >> ");
+	scanf("%d", &op);
 
     /*definicion de variables auxiliares */
     int i, j;
-    ladeseada = sqrt(especimen); //el error deseado
-    unsigned short prob_cruza = 80;
+	unsigned short prob_cruza;
     unsigned short prob_mutar;
-    errores = (double*)malloc(N*sizeof(double));
+
+    ladeseada = sqrt(especimen); //el error deseado
+	switch (op){
+		case 1:
+			prob_cruza = 80;
+			prob_mutar = 5;
+			break;
+		case 2:
+			prob_cruza = 85;
+			prob_mutar = 10;
+			break;
+		case 3:
+			prob_cruza = 40;
+			prob_mutar = 7;
+			break;
+		case 4:
+			prob_cruza = 30;
+			prob_mutar = 50;
+			break;
+		case 5:
+			prob_cruza = 90;
+			prob_mutar = 5;
+			break;
+		default:
+			printf("Error");
+			return 0;
+	}
+	errores = (double*)malloc(N*sizeof(double));
     double tmp, tmp2;
     unsigned int tmp3, tmp4;
     int pendientes;
@@ -182,7 +211,7 @@ void* llenar_errores(void* args){
     *(errores+i) = pow((ladeseada - (numeros+i)->total),2) / 2;
     if(*(errores+i) < error && lost)
     {
-      printf("El resultado es: %lf\n", (numeros+i)->total, *(errores+i));
+      printf("El resultado es: %lf\n", (numeros+i)->total);
       lost = 0;
     }
   }
